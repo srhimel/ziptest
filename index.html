@@ -1,0 +1,25 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#zone_postcode').change(function() {
+    var val = $(this).val().trim("  ");
+      var array = val.split(" ", 2);
+      var arrLength = array.length;
+      if (val.includes("*")) {
+        var asterbrk = val.split("*", 2);
+        $('#zone_postcode').val(asterbrk[0] + '*');
+      } else if (arrLength < 2) {
+        $('#zone_postcode').val(array[0] + '*');
+      } else if (arrLength == 2) {
+        $('#zone_postcode').val(array[0] + ' ' + array[1]);
+      }
+  })
+})
+
+</script>
+<h1> Type your zipcode and click anywhere outside to test </h1>
+<div>
+  <input type="text" id="zone_postcode">
+</div>
+
+
